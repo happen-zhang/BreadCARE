@@ -15,7 +15,7 @@ define('db_user', default = 'root')
 define('db_password', default = 'happen')
 tornado.options.parse_command_line()
 
-STATIC_ROOT = path(ROOT, 'static')
+STATIC_ROOT = path(ROOT, '$static')
 TEMPLATE_ROOT = path(ROOT, 'templates')
 
 # Deployment Configuration
