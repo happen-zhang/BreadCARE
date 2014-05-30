@@ -1,5 +1,5 @@
 from handlers.index import IndexHandler
 
-url_patterns = [
+routes = [
     (r'/', IndexHandler),
 ]
