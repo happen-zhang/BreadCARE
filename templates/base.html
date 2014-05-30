@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{% block title %}{% end %} BreadCARE 收藏你的世界 </title>
-	<link href="{{ static_url('css/readable.css') }}" rel="stylesheet">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>{% block title %}{% end %} BreadCARE 收藏你的世界 </title>
+    <link href="{{ static_url('css/readable.css') }}" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
-	<div class="navbar navbar-inverse">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="/">面包书签</a>
-		</div>
-		<div class="navbar-collapse collapse navbar-responsive-collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="/">网页书签</a></li>
-				<li><a href="/$BreadCARE/Store/">书签仓库</a></li>
-			</ul>
-			<!--完善了数据库部分后判断一下是否登录然后显示不同的顶部-->
-			<ul class="nav navbar-nav navbar-right">
-				<li><a id="login" href="/$login">登录</a></li>
-				<li><a id="register" href="/$register">注册</a></li>
-			</ul>
-		</div>
-	</div>
-	{% block innerhtml %}{% end %}
-<!--[if lt IE 9]>
-<script src="{{　static_url("js/html5shiv.js") }}"></script>
-<script src="{{ static_url("js/respond.min.js") }}"></script>
-<![endif]-->
-<script src="{{ static_url('js/jquery-1.10.2.min.js')}}"></script>
-<script src="{{ static_url('js/bootstrap.min.js') }}"></script>
+    <div class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">面包书签</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">网页书签</a></li>
+                <li><a href="/$BreadCARE/Store/">书签仓库</a></li>
+            </ul>
+            <!--完善了数据库部分后判断一下是否登录然后显示不同的顶部-->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a id="login" href="/$login">登录</a></li>
+                <li><a id="register" href="/$register">注册</a></li>
+            </ul>
+        </div>
+    </div>
+    {% block innerhtml %}{% end %}
+    <!--[if lt IE 9]>
+    <script src="{{ static_url('js/html5shiv.js') }}"></script>
+    <script src="{{ static_url('js/respond.min.js') }}"></script>
+    <![endif]-->
+    <script src="{{ static_url('js/jquery-1.10.2.min.js')}}"></script>
+    <script src="{{ static_url('js/bootstrap.min.js') }}"></script>
 </body>
 </html>

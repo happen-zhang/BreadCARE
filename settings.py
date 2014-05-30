@@ -6,13 +6,9 @@ from tornado.options import define, options
 path = lambda root, *a: os.path.join(root, *a)
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
-define('port', default = 80, help = 'run on the given port', type = int)
+define('port', default = 8001, help = 'run on the given port', type = int)
 define('config', default = None, help = 'tornado config file')
 define('debug', default = False, help = 'debug mode')
-define('db_host', default = '127.0.0.1:3306')
-define('db_name', default = 'breadcare')
-define('db_user', default = 'root')
-define('db_password', default = 'happen')
 tornado.options.parse_command_line()
 
 STATIC_ROOT = path(ROOT, '$static')
