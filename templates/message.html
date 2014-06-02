@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% end %}
+{% block innerhtml %}
+<div class="jumbotron">
+    <center>
+        <h1>{{ title }}</h1>
+        <p>{{ message }}</p>
+        {% try %}{% if jump_url %}<p><a class="btn btn-primary btn-lg" id="jumbotron-btn" href="{{ jump_url }}" >下一步</a></p>{% end %}{% except %}<p><a class="btn btn-primary btn-lg" id="jumbotron-btn" href="/" >首页</a></p>{% end %}
+    </center>
+</div>
+{% end %}

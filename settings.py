@@ -6,16 +6,36 @@ from tornado.options import define, options
 path = lambda root, *a: os.path.join(root, *a)
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
-define('port', default = 80, help = 'run on the given port', type = int)
+define('port', default = 8001, help = 'run on the given port', type = int)
 define('config', default = None, help = 'tornado config file')
-define('debug', default = False, help = 'debug mode')
-define('db_host', default = '127.0.0.1:3306')
-define('db_name', default = 'breadcare')
-define('db_user', default = 'root')
-define('db_password', default = 'happen')
+define('debug', default = True, help = 'debug mode')
+database_config = {
+    # master
+    'wdb' : {
+        'host' : 'rdsii3uvuii3uvu.mysql.rds.aliyuncs.com',
+        'port' : '3306',
+        'user' : 'db3mfdjdaeg5c0j6',
+        'pswd' : '123456asd',
+        'dbnm' : 'db3mfdjdaeg5c0j6'
+    },
+
+    # slaves
+#    'rdb' : (
+#
+#        {
+#            'host' : 'localhost',
+#            'port' : '3306',
+#            'user' : 'root',
+#            'pswd' : 'root',
+#            'dbnm' : 'breadcare'
+#        }
+#
+#    )
+
+    }
 tornado.options.parse_command_line()
 
-STATIC_ROOT = path(ROOT, '$static')
+STATIC_ROOT = path(ROOT, 'static' )
 TEMPLATE_ROOT = path(ROOT, 'templates')
 
 # Deployment Configuration
@@ -39,9 +59,10 @@ else:
 settings = {}
 settings['debug'] = DEPLOYMENT != DeploymentType.PRODUCTION or options.debug
 settings['static_path'] = STATIC_ROOT
-settings['cookie_secret'] = 'cookie-secret'
+settings['cookie_secret'] = 'set_you_secury_cookie'
 settings['xsrf_cookies'] = True
 settings['template_loader'] = tornado.template.Loader(TEMPLATE_ROOT)
+settings['login_url'] = '/$login'
 
 if options.config:
     tornado.options.parse_config_file(options.config)
