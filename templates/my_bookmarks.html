@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% end %}
+{% block innerhtml %}
+<div class="row bookmarks-main">
+        <div class="col-lg-9">
+            <div class="panel-body">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li class="active">Data</li>
+                </ol>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            a
+        </div>
+    <div class="col-lg-9">
+        <div class="container main-list">
+            <div class="row">
+                {% for mark_line in my_marks %}
+                <div class="col-lg-3">
+                    <figure class="thumbnail list-item">
+                        <img src="{{ mark_line['image'] }}" alt="{{ mark_line['name'] }}" class="img-responsive" />
+                        <div class="caption">
+                            <h4>{{ mark_line['name']}}</h4>
+                            <p>{{ mark_line['content'] }}</p>
+                            <p class="btnbar">
+                                <a href="{{ mark_line['url'] }}" rel="tooltip" title="打开" target="_blank"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                <a href="#" rel="tooltip" title="分享"><span class="glyphicon glyphicon-share"></span></a>
+                                <a href="#" rel="tooltip" title="点赞"><span class="glyphicon glyphicon-heart-empty"></span></a>
+                            </p>
+                        </div>
+                    </figure>
+                </div>
+                {% end %}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="glyphicon glyphicon-thumbs-up"></span> 大家都在看 </h3>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item"><a href="#">Bookmarks Title Bookmarks Title Bookmarks </a></li>
+                <li class="list-group-item"><a href="#">Bookmarks Title</a></li>
+                <li class="list-group-item"><a href="#">Bookmarks Title</a></li>
+                <li class="list-group-item"><a href="#">Bookmarks Title</a></li>
+                <li class="list-group-item"><a href="#">Bookmarks Title</a></li>
+                <li class="list-group-item"><a href="#">Bookmarks Title</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% end %}
+{% block footer %}<script>
+$(document).ready(function(){
+    $("[rel='tooltip']").tooltip();
+
+    $('.thumbnail').hover(
+        function(){
+            $(this).find('.caption').slideDown(250);
+        },
+
+        function(){
+            $(this).find('.caption').slideUp(250);
+        }
+    );
+});
+</script>{% end %}
