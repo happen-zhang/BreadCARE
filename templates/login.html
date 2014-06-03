@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% end %}
+{% block innerhtml %}
+<div class="form-signin">
+	{% try %}
+	{% if message %}
+    <div class="alert alert-danger animated fadeIn">
+        <button type="button" data-dismiss="alert" class="close">×</button><div><strong>面包书签：</strong>{{ message }}</div>
+    </div>
+    {% end %}
+    {% except %}
+    <div class="alert alert-success animated fadeIn">
+        <button type="button" data-dismiss="alert" class="close">×</button><div><strong>面包书签：</strong>享受充足的信息源</div>
+    </div>
+    {% end %}
+    <form action="" method="post" role="form" class="form-signin" id="form-login">
+    	{% raw xsrf_form_html() %}
+        <div class="list-group">
+            <div class="list-group-item">
+                <input type="text" autocomplete="off" placeholder="邮箱" name="email" class="form-control no-border" check-type="mail require" mail-message="邮箱格式不正确！" required-message="密码不能为空！" />
+            </div>
+            <div class="list-group-item">
+                <input type="password" placeholder="密码" name="password" class="form-control no-border">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-lg btn-primary btn-block btn-login">登录</button>
+        <div class="clearfix"></div>
+        <p class="line line-dashed"></p>
+        <p class="text-muted text-center"><small>还没有账户？</small></p>
+        <a href="/signup" class="btn btn-lg btn-default btn-block">注册一个账户</a>
+    </form>
+</div>
+{% end %}
